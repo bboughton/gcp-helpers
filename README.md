@@ -39,3 +39,22 @@ func main() {
 	fmt.Println("Object:", u.Object)
 }
 ```
+
+## gsutil
+
+Package gsutil provides utility helpers for working with Google Cloud
+Storage. These helpers are meant to simplify some common use cases. To
+keep these helpers simple authentication credentials are retrieved
+from the standard credential resolution chain used by the storage SDK
+'cloud.google.com/go/storage'.
+
+```go
+func main() {
+	b, err := gsutil.ReadFile("gs://bucket-name/path/to/object")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(b))
+}
+```
